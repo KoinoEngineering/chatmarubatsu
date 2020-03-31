@@ -30,7 +30,8 @@
         "eject": "react-scripts eject",
         "lint": "eslint src/**.ts src/**.tsx",
         "lint:fixall": "eslint --fix src/**.ts src/**.tsx",
-        "firebase": "firebase"
+        "firebase": "firebase",
+        "firebase:deploy": "npm run build && npm run firebase deploy"
     },
     "eslintConfig": {
         "extends": "react-app"
