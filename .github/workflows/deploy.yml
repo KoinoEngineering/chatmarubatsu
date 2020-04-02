@@ -27,13 +27,14 @@ jobs:
   deploy:
     name: deploy
     needs: test
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Read .nvmrc
       run: echo ::set-output name=NVMRC::$(cat .nvmrc)
       id: nvm
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js '${{ steps.nvm.outputs.NVMRC }}'
       uses: actions/setup-node@v1
       with:
         node-version: '${{ steps.nvm.outputs.NVMRC }}'
