@@ -14,6 +14,9 @@
         "firebase": "firebase"
     },
     "dependencies": {
+        "@material-ui/core": "^4.9.8",
+        "@material-ui/icons": "^4.9.1",
+        "@primer/octicons-react": "^9.6.0",
         "fibers": ">= 3.1.0",
         "firebase": "^7.13.1",
         "node-sass": "^4.0.0",
