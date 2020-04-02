@@ -46,6 +46,14 @@
     "eslintConfig": {
         "extends": "react-app"
     },
+    "author": {
+        "url": "https://github.com/koinoengineering/",
+        "email": "email@koino.engineering",
+        "name": "Koino Engineering"
+    },
+    "repository": {
+        "url": "https://github.com/KoinoEngineering/chatmarubatsu"
+    },
     "browserslist": {
         "production": [
             ">0.2%",
