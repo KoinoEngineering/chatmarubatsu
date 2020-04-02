@@ -19,7 +19,7 @@ jobs:
         node-version: '${{ steps.nvm.outputs.NVMRC }}'
     - run: npm ci
     - run: npm run build
-    - run: npm run deploy
+    - run: npm run firebase:deploy
   release:
     name: Create Release
     needs: deploy
