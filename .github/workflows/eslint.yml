@@ -8,14 +8,14 @@ jobs:
   lint:
     name: lint
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 13.12.0 ]
     steps:
     - uses: actions/checkout@v2
+    - name: Read .nvmrc
+      run: echo ::set-output name=NVMRC::$(cat .nvmrc)
+      id: nvm
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '${{ steps.nvm.outputs.NVMRC }}'
     - run: npm ci
     - run: npm run lint
