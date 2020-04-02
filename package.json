@@ -3,7 +3,18 @@
     "version": "0.1.0",
     "license": "MIT",
     "private": true,
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "lint": "eslint src/**.ts src/**.tsx",
+        "lint:fixall": "eslint --fix src/**.ts src/**.tsx",
+        "firebase": "firebase",
+        "firebase:deploy": "npm run build && npm run firebase deploy"
+    },
     "dependencies": {
+        "firebase": "^7.13.1",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-scripts": "3.4.1",
@@ -19,15 +30,8 @@
         "@types/react-dom": "^16.9.5",
         "@typescript-eslint/eslint-plugin": "^2.26.0",
         "@typescript-eslint/parser": "^2.26.0",
-        "eslint": "^6.8.0"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "lint": "eslint src/**.ts src/**.tsx",
-        "lint:fixall": "eslint --fix src/**.ts src/**.tsx"
+        "eslint": "^6.8.0",
+        "firebase-tools": "^7.16.2"
     },
     "eslintConfig": {
         "extends": "react-app"
