@@ -8,8 +8,8 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "lint": "eslint src/**.ts src/**.tsx",
-        "lint:fixall": "eslint --fix src/**.ts src/**.tsx",
+        "lint": "eslint --ext .js,.jsx,.ts,.tsx src/",
+        "lint:fixall": "eslint --fix --ext .js,.jsx,.ts,.tsx src/",
         "firebase": "firebase"
     },
     "dependencies": {
