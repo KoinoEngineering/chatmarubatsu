@@ -1,9 +1,9 @@
-name: eslint
+name: jest
 
-on: push
+on: pull_request
 jobs:
-  lint:
-    name: lint
+  test:
+    name: test
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -15,4 +15,6 @@ jobs:
       with:
         node-version: '${{ steps.nvm.outputs.NVMRC }}'
     - run: npm ci
-    - run: npm run lint
+    - run: npm test -- --coverage --watchAll=false
+      env:
+        CI: true
