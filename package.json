@@ -10,8 +10,7 @@
         "eject": "react-scripts eject",
         "lint": "eslint src/**.ts src/**.tsx",
         "lint:fixall": "eslint --fix src/**.ts src/**.tsx",
-        "firebase": "firebase",
-        "firebase:deploy": "npm run firebase deploy"
+        "firebase": "firebase"
     },
     "dependencies": {
         "firebase": "^7.13.1",
