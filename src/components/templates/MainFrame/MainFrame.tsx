@@ -1,4 +1,4 @@
-import Header from "components/templates/Header/Header";
+import Header from "components/organisms/Header/Header";
 import React from "react";
 import { MuiThemeProvider, CssBaseline } from "@material-ui/core";
 import defaultTheme from "utils/thme";
