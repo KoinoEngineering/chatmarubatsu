@@ -47,7 +47,7 @@
         "extends": "react-app"
     },
     "author": {
-        "url": "https://github.com/koinoengineering/",
+        "url": "https://www.koino.engineering/",
         "email": "email@koino.engineering",
         "name": "Koino Engineering"
     },
