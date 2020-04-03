@@ -1,4 +1,4 @@
-import Routes from "pages/Routes";
+import App from "pages/App";
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
     <React.StrictMode>
-        <Routes />
+        <App />
     </React.StrictMode>,
     document.getElementById("root")
 );

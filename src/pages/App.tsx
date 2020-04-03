@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import Top from "./Top/Top";
 import ROUTES from "utils/routes";
 
-const Routes: React.FC = () => {
+const App: React.FC = () => {
     return <div id="Routes">
         <BrowserRouter>
             <Switch>
@@ -17,4 +17,4 @@ const Routes: React.FC = () => {
         </BrowserRouter>
     </div>;
 };
-export default Routes;
+export default App;
