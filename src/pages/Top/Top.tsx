@@ -1,9 +1,9 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import logo from "logo.svg";
+import "./Top.css";
 import { firestore } from "firebase/firebase.config";
 
-function App() {
+function Top() {
     return (
         <div className="App">
             <header className="App-header">
@@ -25,4 +25,4 @@ function App() {
     );
 }
 
-export default App;
+export default Top;
