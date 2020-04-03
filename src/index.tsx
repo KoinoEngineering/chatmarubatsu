@@ -1,20 +1,12 @@
-import { CssBaseline, MuiThemeProvider } from "@material-ui/core";
-import MainFrame from "container/MainFrame";
 import Routes from "pages/Routes";
 import React from "react";
 import ReactDOM from "react-dom";
-import defaultTheme from "utils/thme";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
     <React.StrictMode>
-        <MuiThemeProvider theme={defaultTheme}>
-            <CssBaseline />
-            <MainFrame>
-                <Routes />
-            </MainFrame>
-        </MuiThemeProvider>
+        <Routes />
     </React.StrictMode>,
     document.getElementById("root")
 );
