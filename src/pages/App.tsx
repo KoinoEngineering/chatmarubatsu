@@ -9,10 +9,10 @@ const App: React.FC = () => {
         <div id="App">
             <BrowserRouter>
                 <Switch>
-                    <Redirect exact from="/" to={ROUTES.APP} />
+                    <Redirect exact from="/" to={ROUTES.TOP} />
                     <Route
                         exact
-                        path={ROUTES.APP}
+                        path={ROUTES.TOP}
                         component={Top}
                     />
                 </Switch>
