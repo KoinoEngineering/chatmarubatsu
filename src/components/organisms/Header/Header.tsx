@@ -27,7 +27,7 @@ const useIconStyle = makeStyles(
 const Header: React.FC = () => {
     const classes = useStyles();
     const iconClasses = useIconStyle();
-    return <AppBar id="Header" classes={classes}>
+    return <AppBar id="Header" classes={classes} position="static">
         <Grid container>
             <Grid item>
                 <h1>This is Header</h1>
