@@ -23,7 +23,7 @@ const App: React.FC = () => {
                     />
                 </Switch>
             </BrowserRouter>
-        </div>;
+        </div>
     </MainFrame>;
 };
 export default App;

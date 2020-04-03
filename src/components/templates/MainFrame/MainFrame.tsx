@@ -1,7 +1,7 @@
 import Header from "components/organisms/Header/Header";
 import React from "react";
 import { MuiThemeProvider, CssBaseline } from "@material-ui/core";
-import defaultTheme from "utils/thme";
+import defaultTheme from "utils/theme";
 
 interface MainFrameProps {
 }
