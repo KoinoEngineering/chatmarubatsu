@@ -1,9 +1,10 @@
-import { render } from "@testing-library/react";
-import React from "react";
 import Top from "pages/Top/Top";
+import React from "react";
+import { renderWithProvider } from "test/tetutils";
 
-test("renders learn react link", () => {
-    const { getByText } = render(<Top />);
-    const linkElement = getByText(/learn react/i);
-    expect(linkElement).toBeInTheDocument();
+test("snapshot testing", () => {
+    const top = renderWithProvider(
+        <Top />
+    );
+    expect(top).toMatchSnapshot();
 });
