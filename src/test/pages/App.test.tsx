@@ -1,10 +1,10 @@
-import Top from "pages/Top/Top";
+import App from "pages/App";
 import React from "react";
 import { renderWithProvider } from "test/tetutils";
 
 test("snapshot testing", () => {
     const top = renderWithProvider(
-        <Top />
+        <App />
     );
     expect(top).toMatchSnapshot();
 });
