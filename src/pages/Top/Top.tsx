@@ -1,9 +1,17 @@
-import React from "react";
+import React, { useMemo } from "react";
 import logo from "logo.svg";
 import "./Top.css";
 import { firestore } from "firebase/firebase.config";
+import { Button } from "@material-ui/core";
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from "redux";
+import topActionCreators from "./TopActions";
 
 function Top() {
+    const dispatch = useDispatch();
+    const actions = useMemo(() => {
+        return bindActionCreators(topActionCreators, dispatch);
+    }, [dispatch]);
     return (
         <div className="App">
             <header className="App-header">
@@ -21,6 +29,9 @@ function Top() {
                     {firestore.toString()}
                 </a>
             </header>
+            <div>
+                <Button onClick={() => actions.logOut()}>ログアウト</Button>
+            </div>
         </div>
     );
 }

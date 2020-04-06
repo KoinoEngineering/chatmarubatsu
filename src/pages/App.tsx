@@ -1,14 +1,17 @@
 import MainFrame from "components/templates/MainFrame/MainFrame";
+import PageContainer from "components/templates/Page/PageContainer";
+import { ConnectedRouter } from "connected-react-router";
+import { history } from "core/ConfigureStore";
 import React from "react";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import ROUTES from "utils/routes";
-import Top from "./Top/Top";
 import Login from "./Login/Login";
+import Top from "./Top/Top";
 
 const App: React.FC = () => {
     return <MainFrame>
-        <div id="App">
-            <BrowserRouter>
+        <PageContainer id="App">
+            <ConnectedRouter history={history}>
                 <Switch>
                     <Redirect exact from="/" to={ROUTES.LOGIN} />
                     <Route
@@ -22,8 +25,8 @@ const App: React.FC = () => {
                         component={Login}
                     />
                 </Switch>
-            </BrowserRouter>
-        </div>
+            </ConnectedRouter>
+        </PageContainer>
     </MainFrame>;
 };
 export default App;
