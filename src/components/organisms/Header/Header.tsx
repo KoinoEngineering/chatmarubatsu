@@ -4,7 +4,7 @@ import React from "react";
 import packageJson from "../../../../package.json";
 import Logo from "images/logo/logo.svg";
 
-const HEADER_HEIGHT = 75;
+export const HEADER_HEIGHT = 75;
 const useStyles = makeStyles(
     createStyles({
         root: {
