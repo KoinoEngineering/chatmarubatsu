@@ -4,6 +4,9 @@ import configureStore from "core/ConfigureStore";
 import React from "react";
 
 export const renderWithProvider = (Target: React.ReactNode) => render(
-    <Provider store={configureStore}>
-        {Target}
-    </Provider>);
+    <React.StrictMode>
+        <Provider store={configureStore}>
+            {Target}
+        </Provider>
+    </React.StrictMode>,
+);
