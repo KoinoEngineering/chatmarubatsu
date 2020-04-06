@@ -4,7 +4,7 @@ import React from "react";
 import packageJson from "../../../../package.json";
 import Logo from "images/logo/logo.svg";
 
-const HEADER_HEIGHT = 75;
+export const HEADER_HEIGHT = 75;
 const useStyles = makeStyles(
     createStyles({
         root: {
@@ -27,7 +27,7 @@ const useIconStyle = makeStyles(
 const Header: React.FC = () => {
     const classes = useStyles();
     const iconClasses = useIconStyle();
-    return <AppBar id="Header" classes={classes}>
+    return <AppBar id="Header" classes={classes} position="static">
         <Grid container>
             <Grid item>
                 <h1>This is Header</h1>

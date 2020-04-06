@@ -1,4 +1,6 @@
 enum ROUTES {
-    APP = "/app"
+    TOP = "/top",
+    LOGIN = "/login"
+
 }
 export default ROUTES;

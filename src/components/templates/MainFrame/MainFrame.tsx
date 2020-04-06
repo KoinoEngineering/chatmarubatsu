@@ -1,17 +1,28 @@
-import Header from "components/organisms/Header/Header";
+import { createStyles, CssBaseline, makeStyles, MuiThemeProvider } from "@material-ui/core";
+import Header, { HEADER_HEIGHT } from "components/organisms/Header/Header";
 import React from "react";
-import { MuiThemeProvider, CssBaseline } from "@material-ui/core";
-import defaultTheme from "utils/thme";
+import { px } from "utils/stringUtil";
+import defaultTheme from "utils/theme";
 
 interface MainFrameProps {
 }
 
+const useStyles = makeStyles(createStyles({
+    main: {
+        height: 0,
+        minHeight: `calc(100vh - ${px(HEADER_HEIGHT)})`
+    }
+}));
+
 const MainFrame: React.FC<MainFrameProps> = props => {
+    const classes = useStyles();
     return <div id="MainFrame">
         <MuiThemeProvider theme={defaultTheme} >
             <CssBaseline />
             <Header />
-            {props.children}
+            <div id="main" className={classes.main}>
+                {props.children}
+            </div>
         </MuiThemeProvider>
     </div>;
 };
