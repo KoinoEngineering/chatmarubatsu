@@ -5,9 +5,11 @@ export interface LoginState {
     name: string;
 }
 
-export interface ChangeTextPayload extends Partial<LoginState> {
-}
+interface ChangeTextPayload extends Partial<LoginState> { }
+
+export interface LoginChangeTextAction extends ActionObject<ActionType.CHANGE_TEXT, ChangeTextPayload> { }
+export interface LoginLoginAction extends ActionObject<ActionType.LOGIN> { }
 
 export type LoginActions =
-    ActionObject<ActionType.CHANGE_TEXT, ChangeTextPayload> |
-    ActionObject<ActionType.LOGIN>;
+    LoginChangeTextAction |
+    LoginLoginAction;
