@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: GET Now
-      run: echo ::set-output name=NOW::$(date '+%Y%m%d%S')
+      run: echo ::set-output name=NOW::$(date '+%Y%m%d%H%M%S')
       id: now
     - name: Create Release
       id: create_release
