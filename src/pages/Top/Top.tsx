@@ -1,13 +1,15 @@
-import { Flipper, Flipped } from "react-flip-toolkit";
 import { Button, Card, CardActions, CardContent, Container, Grid, IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { GridRow } from "components/templates/GridRow/GridRow";
+import { firestore } from "firebase/firebase.config";
 import { State } from "interfaces/State";
 import React, { useEffect, useMemo } from "react";
+import { Flipped, Flipper } from "react-flip-toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import topActionCreators from "./TopActions";
 import { TopState } from "./TopTypes";
+import { MyUser } from "interfaces/firestore/users/User";
 
 function Top() {
     const dispatch = useDispatch();
@@ -17,10 +19,28 @@ function Top() {
     }, [dispatch]);
 
     useEffect(() => {
-        if (!data) {
-            actions.getUsers();
-        }
-    }, [data, actions]);
+        return firestore
+            .collection("users")
+            .onSnapshot(docSnapshot => {
+                const docs: MyUser[] = [];
+                const changed: (MyUser & { type: string })[] = [];
+                docSnapshot.forEach(d => {
+                    docs.push({ id: d.id, ...d.data() });
+                });
+                docSnapshot.docChanges().forEach(({ doc, type }) => {
+                    changed.push({ type, id: doc.id, ...doc.data() });
+                });
+                if (process.env.NODE_ENV !== "production") {
+                    console.groupCollapsed("users onSnapshot");
+                    console.log("all", docs);
+                    console.log("changed only", changed);
+                    console.groupEnd();
+                }
+                actions.setUsers(docs);
+            }, err => {
+                throw err;
+            });
+    }, [actions]);
 
     return (
         <div className="Top">
