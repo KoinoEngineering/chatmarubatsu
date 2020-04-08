@@ -18,30 +18,6 @@ function Top() {
         return bindActionCreators(topActionCreators, dispatch);
     }, [dispatch]);
 
-    useEffect(() => {
-        return firestore
-            .collection("users")
-            .onSnapshot(docSnapshot => {
-                const docs: MyUser[] = [];
-                const changed: (MyUser & { type: string })[] = [];
-                docSnapshot.forEach(d => {
-                    docs.push({ id: d.id, ...d.data() });
-                });
-                docSnapshot.docChanges().forEach(({ doc, type }) => {
-                    changed.push({ type, id: doc.id, ...doc.data() });
-                });
-                if (process.env.NODE_ENV !== "production") {
-                    console.groupCollapsed("users onSnapshot");
-                    console.log("all", docs);
-                    console.log("changed only", changed);
-                    console.groupEnd();
-                }
-                actions.setUsers(docs);
-            }, err => {
-                throw err;
-            });
-    }, [actions]);
-
     return (
         <div className="Top">
             <Flipper flipKey={data?.map(d => d.id).join(",")}>
