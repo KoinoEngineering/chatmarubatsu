@@ -1,15 +1,13 @@
 import { Button, Card, CardActions, CardContent, Container, Grid, IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { GridRow } from "components/templates/GridRow/GridRow";
-import { firestore } from "firebase/firebase.config";
 import { State } from "interfaces/State";
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import { Flipped, Flipper } from "react-flip-toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import topActionCreators from "./TopActions";
 import { TopState } from "./TopTypes";
-import { MyUser } from "interfaces/firestore/users/User";
 
 function Top() {
     const dispatch = useDispatch();
