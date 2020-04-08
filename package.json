@@ -74,6 +74,7 @@
     "jest": {
         "coveragePathIgnorePatterns": [
             "<rootDir>/src/index.tsx",
+            "<rootDir>/src/firebase/FireBaseMonitor",
             "<rootDir>/src/serviceWorker.ts"
         ]
     }
