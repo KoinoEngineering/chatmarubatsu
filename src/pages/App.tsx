@@ -7,7 +7,7 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import ROUTES from "utils/routes";
 import Login from "./Login/Login";
 import Top from "./Top/Top";
-import FireStoreMonitor from "firebase/FireBaseMonitor";
+import FireStoreMonitor from "firebase/FireStoreMonitor";
 
 const App: React.FC = () => {
     return <MainFrame>
