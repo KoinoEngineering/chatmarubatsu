@@ -6,96 +6,104 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="App"
+        class="Top"
       >
-        <header
-          class="App-header"
-        >
-          <img
-            alt="logo"
-            class="App-logo"
-            src="logo.svg"
-          />
-          <p>
-            Edit 
-            <code>
-              src/App.tsx
-            </code>
-             and save to reload.
-          </p>
-          <a
-            class="App-link"
-            href="https://reactjs.org"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Learn React
-            [object Object]
-          </a>
-        </header>
         <div>
-          <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-text"
-            tabindex="0"
-            type="button"
+          <div
+            class="MuiGrid-root"
           >
-            <span
-              class="MuiButton-label"
-            >
-              ログアウト
-            </span>
-            <span
-              class="MuiTouchRipple-root"
+            <div
+              class="MuiGrid-root MuiGrid-container makeStyles-container-104 makeStyles-container-106"
             />
-          </button>
+            <div
+              class="MuiGrid-root MuiGrid-container makeStyles-container-104 makeStyles-container-108 MuiGrid-justify-xs-center"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  追加
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+            <div
+              class="MuiGrid-root MuiGrid-container makeStyles-container-104 makeStyles-container-142 MuiGrid-justify-xs-center"
+            >
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+                tabindex="0"
+                type="button"
+              >
+                <span
+                  class="MuiButton-label"
+                >
+                  ログアウト
+                </span>
+                <span
+                  class="MuiTouchRipple-root"
+                />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="App"
+      class="Top"
     >
-      <header
-        class="App-header"
-      >
-        <img
-          alt="logo"
-          class="App-logo"
-          src="logo.svg"
-        />
-        <p>
-          Edit 
-          <code>
-            src/App.tsx
-          </code>
-           and save to reload.
-        </p>
-        <a
-          class="App-link"
-          href="https://reactjs.org"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Learn React
-          [object Object]
-        </a>
-      </header>
       <div>
-        <button
-          class="MuiButtonBase-root MuiButton-root MuiButton-text"
-          tabindex="0"
-          type="button"
+        <div
+          class="MuiGrid-root"
         >
-          <span
-            class="MuiButton-label"
-          >
-            ログアウト
-          </span>
-          <span
-            class="MuiTouchRipple-root"
+          <div
+            class="MuiGrid-root MuiGrid-container makeStyles-container-104 makeStyles-container-106"
           />
-        </button>
+          <div
+            class="MuiGrid-root MuiGrid-container makeStyles-container-104 makeStyles-container-108 MuiGrid-justify-xs-center"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                追加
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+          <div
+            class="MuiGrid-root MuiGrid-container makeStyles-container-104 makeStyles-container-142 MuiGrid-justify-xs-center"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                class="MuiButton-label"
+              >
+                ログアウト
+              </span>
+              <span
+                class="MuiTouchRipple-root"
+              />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>,

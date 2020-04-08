@@ -1,38 +1,56 @@
+import { Button, Card, CardActions, CardContent, Container, Grid, IconButton } from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { GridRow } from "components/templates/GridRow/GridRow";
+import { State } from "interfaces/State";
 import React, { useMemo } from "react";
-import logo from "logo.svg";
-import "./Top.css";
-import { firestore } from "firebase/firebase.config";
-import { Button } from "@material-ui/core";
-import { useDispatch } from "react-redux";
+import { Flipped, Flipper } from "react-flip-toolkit";
+import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import topActionCreators from "./TopActions";
+import { TopState } from "./TopTypes";
 
 function Top() {
     const dispatch = useDispatch();
+    const { data } = useSelector<State, TopState>(state => state.top);
     const actions = useMemo(() => {
         return bindActionCreators(topActionCreators, dispatch);
     }, [dispatch]);
+
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a
-                    className="App-link"
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                    {firestore.toString()}
-                </a>
-            </header>
-            <div>
-                <Button onClick={() => actions.logOut()}>ログアウト</Button>
-            </div>
-        </div>
+        <div className="Top">
+            <Flipper flipKey={data?.map(d => d.id).join(",")}>
+                <Grid>
+                    <GridRow >
+                        {data?.map(d =>
+                            <Flipped key={d.id} flipId={d.id}>
+                                <Grid item style={{ width: 150, }}>
+                                    <Container style={{ padding: "1rem" }}>
+                                        <Card style={{ wordWrap: "break-word" }}>
+                                            <CardActions>
+                                                <Grid container justify="flex-end">
+                                                    <IconButton edge="end" onClick={() => actions.removeItem(d.id)}>
+                                                        <DeleteIcon />
+                                                    </IconButton>
+                                                </Grid>
+                                            </CardActions>
+                                            <CardContent>
+                                                {d.id}
+                                            </CardContent>
+                                        </Card>
+                                    </Container>
+                                </Grid>
+                            </Flipped>
+                        )}
+                    </GridRow>
+                    <GridRow justify="center">
+                        <Button variant="outlined" onClick={() => actions.addItem()}>追加</Button>
+                    </GridRow>
+                    <GridRow justify="center">
+                        <Button variant="outlined" onClick={() => actions.logOut()}>ログアウト</Button>
+                    </GridRow>
+                </Grid>
+            </Flipper>
+        </div >
     );
 }
 

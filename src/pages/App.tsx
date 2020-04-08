@@ -7,11 +7,13 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import ROUTES from "utils/routes";
 import Login from "./Login/Login";
 import Top from "./Top/Top";
+import FireStoreMonitor from "firebase/FireStoreMonitor";
 
 const App: React.FC = () => {
     return <MainFrame>
         <PageContainer id="App">
             <ConnectedRouter history={history}>
+                <FireStoreMonitor />
                 <Switch>
                     <Redirect exact from="/" to={ROUTES.LOGIN} />
                     <Route

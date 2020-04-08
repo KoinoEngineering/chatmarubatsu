@@ -1,5 +1,4 @@
-import { createAction } from "core/Action";
-import { ChangeTextPayload } from "./LoginTypes";
+import { LoginChangeTextAction, LoginLoginAction } from "./LoginTypes";
 
 export enum ActionType {
     CHANGE_TEXT = "chatmarubatsu/Login/CHANGE_TEXT",
@@ -7,8 +6,8 @@ export enum ActionType {
 }
 
 const loginActionCreators = {
-    changeText: (payload: ChangeTextPayload) => createAction(ActionType.CHANGE_TEXT, payload),
-    logIn: () => createAction(ActionType.LOGIN, undefined)
+    changeText: (payload: LoginChangeTextAction["payload"]): LoginChangeTextAction => ({ type: ActionType.CHANGE_TEXT, payload }),
+    logIn: (): LoginLoginAction => ({ type: ActionType.LOGIN, payload: undefined }),
 };
 
 export default loginActionCreators;
