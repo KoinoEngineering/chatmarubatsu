@@ -1,5 +1,5 @@
+import { createStyles, makeStyles } from "@material-ui/core";
 import MainFrame from "components/templates/MainFrame/MainFrame";
-import PageContainer from "components/templates/Page/PageContainer";
 import PrivateRoute from "components/templates/PrivateRoute";
 import { ConnectedRouter } from "connected-react-router";
 import { history } from "core/ConfigureStore";
@@ -10,9 +10,15 @@ import ROUTES from "utils/routes";
 import Lobby from "./Lobby/Lobby";
 import Login from "./Login/Login";
 
+const useStyles = makeStyles(
+    createStyles({
+        root: { height: "100%" }
+    }));
+
 const App: React.FC = () => {
+    const classes = useStyles();
     return <MainFrame>
-        <PageContainer id="App">
+        <div id="App" className={classes.root}>
             <ConnectedRouter history={history}>
                 <FireStoreMonitor />
                 <Switch>
@@ -29,7 +35,7 @@ const App: React.FC = () => {
                     />
                 </Switch>
             </ConnectedRouter>
-        </PageContainer>
+        </div>
     </MainFrame>;
 };
 export default App;
