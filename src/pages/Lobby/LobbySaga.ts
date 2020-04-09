@@ -1,6 +1,6 @@
 import { auth } from "firebase/firebase.config";
 import { call, takeLeading } from "redux-saga/effects";
-import { ActionType } from "./LobbyActions";
+import { ActionType } from "./LobbyTypes";
 
 const lobbySaga = function* () {
     yield takeLeading(ActionType.LOGOUT, logoutSaga);

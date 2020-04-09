@@ -1,31 +1,39 @@
-import { Reducer } from "redux";
-import { LobbyActions, LobbyState } from "./LobbyTypes";
-import { ActionType } from "./LobbyActions";
 import { Room } from "interfaces/firestore/rooms/Room";
+import { Reducer } from "redux";
+import { ActionType, LobbyActions, LobbyState } from "./LobbyTypes";
 
 const initialState = (): LobbyState => ({
 });
 
 const lobby: Reducer<LobbyState, LobbyActions> = (state = initialState(), action) => {
+
     switch (action.type) {
-        case ActionType.ROOM_ADDED: {
-            const editRoom = (prev: Room[] | undefined, added: Room): Room[] | undefined => {
+        case ActionType.ROOM_ADDED:
+        case ActionType.ROOM_MODIFIED: {
+            const editRoom = (prev: Room[] | undefined, changed: Room): Room[] | undefined => {
                 if (prev) {
-                    return (prev.find((room) => room.id === added.id)
-                        ? prev.map((room) => room.id === added.id
+                    return (prev.find((room) => room.id === changed.id)
+                        ? prev.map((room) => room.id === changed.id
                             ? {
                                 ...room,
-                                ...added
+                                ...changed
                             }
                             : room)
-                        : prev.concat(added)).sort((r1, r2) => r1.id === r2.id ? 0 : r1.id > r2.id ? 1 : -1);
+                        : prev.concat(changed)).sort((r1, r2) => r1.id === r2.id ? 0 : r1.id > r2.id ? 1 : -1);
                 } else {
-                    return [added];
+                    return [changed];
                 }
             };
+
             return {
                 ...state,
                 rooms: editRoom(state.rooms, action.payload.room)
+            };
+        }
+        case ActionType.ROOM_REMOVED: {
+            return {
+                ...state,
+                rooms: state.rooms?.filter(room => room.id !== action.payload.room.id)
             };
         }
         default:

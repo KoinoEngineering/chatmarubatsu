@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, Container, Grid, IconButton } from "@material-ui/core";
+import { Button, Card, CardContent, CardHeader, Container, Grid, IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { GridRow } from "components/templates/GridRow/GridRow";
 import { routerActions } from "connected-react-router";
@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import topActionCreators from "./LobbyActions";
 import { LobbyState } from "./LobbyTypes";
+import PageContainer from "components/templates/Page/PageContainer";
 
 function Lobby() {
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ function Lobby() {
     }, [dispatch]);
 
     return (
-        <div className="Top">
+        <PageContainer id="Lobby">
             <Flipper flipKey={rooms?.map(d => d.id).join(",")}>
                 <Grid>
                     <GridRow >
@@ -30,15 +31,16 @@ function Lobby() {
                                 <Grid item style={{ width: 150, }}>
                                     <Container style={{ padding: "1rem" }}>
                                         <Card style={{ wordWrap: "break-word" }}>
-                                            <CardActions>
-                                                <Grid container justify="flex-end">
-                                                    <IconButton edge="end">
+                                            <CardHeader
+                                                title={d.id}
+                                                action={
+                                                    <IconButton>
                                                         <DeleteIcon />
                                                     </IconButton>
-                                                </Grid>
-                                            </CardActions>
+                                                }
+                                            />
                                             <CardContent>
-                                                {d.id}
+                                                {JSON.stringify(d)}
                                             </CardContent>
                                         </Card>
                                     </Container>
@@ -54,7 +56,7 @@ function Lobby() {
                     </GridRow>
                 </Grid>
             </Flipper>
-        </div >
+        </PageContainer >
     );
 }
 

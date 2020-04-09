@@ -19,6 +19,13 @@ const LobbyMonitor = () => {
                     switch (doc.type) {
                         case "added":
                             actions.roomAdded({ room: { id: doc.doc.id, ...doc.doc.data() as Omit<Room, "id"> } });
+                            break;
+                        case "modified":
+                            actions.roomModified({ room: { id: doc.doc.id, ...doc.doc.data() as Omit<Room, "id"> } });
+                            break;
+                        case "removed":
+                            actions.roomRemoved({ room: { id: doc.doc.id, ...doc.doc.data() as Omit<Room, "id"> } });
+                            break;
                     }
                 });
             });
