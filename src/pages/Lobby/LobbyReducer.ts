@@ -3,6 +3,9 @@ import { Reducer } from "redux";
 import { ActionType, LobbyActions, LobbyState } from "./LobbyTypes";
 
 const initialState = (): LobbyState => ({
+    addRoomModal: {
+        open: false
+    }
 });
 
 const lobby: Reducer<LobbyState, LobbyActions> = (state = initialState(), action) => {
@@ -36,6 +39,19 @@ const lobby: Reducer<LobbyState, LobbyActions> = (state = initialState(), action
                 rooms: state.rooms?.filter(room => room.id !== action.payload.room.id)
             };
         }
+        case ActionType.TOGGLE_ADD_ROOM_MODAL:
+            return {
+                ...state,
+                addRoomModal: {
+                    ...state.addRoomModal,
+                    open: !state.addRoomModal.open
+                }
+            };
+        case ActionType.CHANGE_NEWROOM_NAME:
+            return {
+                ...state,
+                ...action.payload
+            };
         default:
             return state;
     }
