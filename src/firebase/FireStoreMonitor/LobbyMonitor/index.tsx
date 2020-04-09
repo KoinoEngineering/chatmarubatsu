@@ -5,7 +5,7 @@ import React, { useEffect, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";
 
-const TopMonitor = () => {
+const LobbyMonitor = () => {
     const dispatch = useDispatch();
     const actions = useMemo(() => {
         return bindActionCreators(topActionCreators, dispatch);
@@ -39,4 +39,4 @@ const TopMonitor = () => {
 };
 
 
-export default TopMonitor;
+export default LobbyMonitor;
