@@ -1,13 +1,14 @@
 import MainFrame from "components/templates/MainFrame/MainFrame";
 import PageContainer from "components/templates/Page/PageContainer";
+import PrivateRoute from "components/templates/PrivateRoute";
 import { ConnectedRouter } from "connected-react-router";
 import { history } from "core/ConfigureStore";
-import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
-import ROUTES from "utils/routes";
-import Login from "./Login/Login";
-import Lobby from "./Lobby/Lobby";
 import FireStoreMonitor from "firebase/FireStoreMonitor";
+import React from "react";
+import { Redirect, Route as PublicRoute, Switch } from "react-router-dom";
+import ROUTES from "utils/routes";
+import Lobby from "./Lobby/Lobby";
+import Login from "./Login/Login";
 
 const App: React.FC = () => {
     return <MainFrame>
@@ -16,12 +17,12 @@ const App: React.FC = () => {
                 <FireStoreMonitor />
                 <Switch>
                     <Redirect exact from="/" to={ROUTES.LOGIN} />
-                    <Route
+                    <PrivateRoute
                         exact
                         path={ROUTES.LOBBY}
                         component={Lobby}
                     />
-                    <Route
+                    <PublicRoute
                         exact
                         path={ROUTES.LOGIN}
                         component={Login}
