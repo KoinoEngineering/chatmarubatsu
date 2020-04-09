@@ -4,7 +4,7 @@ import topActionCreators, { ActionType } from "./LobbyActions";
 import { MyUser } from "interfaces/firestore/users/User";
 import { LobbyRemoveItemAction, LobbyRemoveItemPayload } from "./LobbyTypes";
 
-const topSaga = function* () {
+const lobbySaga = function* () {
     yield takeLeading(ActionType.LOGOUT, logoutSaga);
     yield takeLatest(ActionType.GET_USERS, getUsersSaga);
     yield takeLatest(ActionType.ADD_ITEM, addItemSaga);
@@ -45,7 +45,7 @@ const removeItem = function* (action: LobbyRemoveItemAction) {
     }
 };
 
-export default topSaga;
+export default lobbySaga;
 
 const callLogout = async () => auth.signOut();
 

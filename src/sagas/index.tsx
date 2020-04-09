@@ -1,6 +1,6 @@
 import { fork, all } from "redux-saga/effects";
 import { checkUserStateSaga } from "./auth";
-import topSaga from "pages/Lobby/LobbySaga";
+import lobbySaga from "pages/Lobby/LobbySaga";
 import loginSaga from "pages/Login/LoginSaga";
 
 const rootSaga = function* () {
@@ -8,7 +8,7 @@ const rootSaga = function* () {
         checkUserStateSaga(), //auth saga
         ...[
             loginSaga,
-            topSaga,
+            lobbySaga,
         ].map(saga => fork(saga))]);
 };
 
