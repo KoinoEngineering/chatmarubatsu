@@ -18,7 +18,7 @@ const App: React.FC = () => {
                     <Redirect exact from="/" to={ROUTES.LOGIN} />
                     <Route
                         exact
-                        path={ROUTES.TOP}
+                        path={ROUTES.LOBBY}
                         component={Top}
                     />
                     <Route

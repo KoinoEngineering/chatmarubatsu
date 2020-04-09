@@ -5,7 +5,7 @@ import TopMonitor from "./TopMonitor";
 
 const FireStoreMonitor = () => {
     return <Switch>
-        <Route path={ROUTES.TOP}>
+        <Route path={ROUTES.LOBBY}>
             <TopMonitor />
         </Route>
     </Switch >;

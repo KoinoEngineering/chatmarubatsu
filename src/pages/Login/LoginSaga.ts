@@ -12,7 +12,7 @@ const clickLoginSaga = function* () {
 
     try {
         yield call(callLogin);
-        yield put(push(ROUTES.TOP));
+        yield put(push(ROUTES.LOBBY));
     } catch (error) {
         console.log(error);
     }
