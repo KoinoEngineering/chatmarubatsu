@@ -1,6 +1,6 @@
 import { fork, all } from "redux-saga/effects";
 import { checkUserStateSaga } from "./auth";
-import topSaga from "pages/Top/TopSaga";
+import topSaga from "pages/Lobby/TopSaga";
 import loginSaga from "pages/Login/LoginSaga";
 
 const rootSaga = function* () {

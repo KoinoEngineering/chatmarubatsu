@@ -1,6 +1,6 @@
 import { LoginState } from "pages/Login/LoginTypes";
 import { RouterState } from "connected-react-router";
-import { LobbyState } from "pages/Top/TopTypes";
+import { LobbyState } from "pages/Lobby/TopTypes";
 
 export interface State {
     router: RouterState
