@@ -6,7 +6,7 @@ import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import ROUTES from "utils/routes";
 import Login from "./Login/Login";
-import Top from "./Lobby/Lobby";
+import Lobby from "./Lobby/Lobby";
 import FireStoreMonitor from "firebase/FireStoreMonitor";
 
 const App: React.FC = () => {
@@ -19,7 +19,7 @@ const App: React.FC = () => {
                     <Route
                         exact
                         path={ROUTES.LOBBY}
-                        component={Top}
+                        component={Lobby}
                     />
                     <Route
                         exact

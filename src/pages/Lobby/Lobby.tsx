@@ -9,7 +9,7 @@ import { bindActionCreators } from "redux";
 import topActionCreators from "./LobbyActions";
 import { LobbyState } from "./LobbyTypes";
 
-function Top() {
+function Lobby() {
     const dispatch = useDispatch();
     const { data } = useSelector<State, LobbyState>(state => state.lobby);
     const actions = useMemo(() => {
@@ -54,4 +54,4 @@ function Top() {
     );
 }
 
-export default Top;
+export default Lobby;
