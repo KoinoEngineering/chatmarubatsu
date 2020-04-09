@@ -5,7 +5,7 @@ import { ActionType } from "./LobbyActions";
 const initialState = (): LobbyState => ({
 });
 
-const top: Reducer<LobbyState, LobbyActions> = (state = initialState(), action) => {
+const lobby: Reducer<LobbyState, LobbyActions> = (state = initialState(), action) => {
     switch (action.type) {
         case ActionType.SET_USERS:
             return {
@@ -17,4 +17,4 @@ const top: Reducer<LobbyState, LobbyActions> = (state = initialState(), action) 
     }
 };
 
-export default top;
+export default lobby;
