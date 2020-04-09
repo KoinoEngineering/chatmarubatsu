@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, CardHeader, Container, Grid, IconButton } from "@material-ui/core";
+import { Button, Card, CardContent, CardHeader, Container, Grid, IconButton, makeStyles, createStyles } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { GridRow } from "components/templates/GridRow/GridRow";
 import { routerActions } from "connected-react-router";
@@ -11,6 +11,21 @@ import topActionCreators from "./LobbyActions";
 import { LobbyState } from "./LobbyTypes";
 import PageContainer from "components/templates/Page/PageContainer";
 
+const useCardButtonStyles = makeStyles(createStyles({
+    root: {
+        position: "absolute",
+        right: 0,
+        zIndex: 100
+    }
+}));
+
+const useCardHeaderStyles = makeStyles(createStyles({
+    root: {
+        position: "relative",
+    }
+}));
+
+
 function Lobby() {
     const dispatch = useDispatch();
     const { rooms } = useSelector<State, LobbyState>(state => state.lobby);
@@ -21,6 +36,8 @@ function Lobby() {
         };
     }, [dispatch]);
 
+    const cardButtonclasses = useCardButtonStyles();
+    const cardHeaderclasses = useCardHeaderStyles();
     return (
         <PageContainer id="Lobby">
             <Flipper flipKey={rooms?.map(d => d.id).join(",")}>
@@ -28,16 +45,17 @@ function Lobby() {
                     <GridRow >
                         {rooms?.map(d =>
                             <Flipped key={d.id} flipId={d.id}>
-                                <Grid item style={{ width: 150, }}>
+                                <Grid item xs={12} sm={6} md={4}>
                                     <Container style={{ padding: "1rem" }}>
                                         <Card style={{ wordWrap: "break-word" }}>
                                             <CardHeader
                                                 title={d.id}
                                                 action={
-                                                    <IconButton>
+                                                    <IconButton classes={cardButtonclasses}>
                                                         <DeleteIcon />
                                                     </IconButton>
                                                 }
+                                                classes={cardHeaderclasses}
                                             />
                                             <CardContent>
                                                 {JSON.stringify(d)}
