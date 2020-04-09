@@ -1,5 +1,5 @@
 import { ActionObject } from "interfaces/Action";
-import { ActionType } from "./TopActions";
+import { ActionType } from "./LobbyActions";
 import { MyUser } from "interfaces/firestore/users/User";
 
 export interface LobbyState {

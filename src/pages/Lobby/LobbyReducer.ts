@@ -1,6 +1,6 @@
 import { Reducer } from "redux";
-import { LobbyActions, LobbyState } from "./TopTypes";
-import { ActionType } from "./TopActions";
+import { LobbyActions, LobbyState } from "./LobbyTypes";
+import { ActionType } from "./LobbyActions";
 
 const initialState = (): LobbyState => ({
 });

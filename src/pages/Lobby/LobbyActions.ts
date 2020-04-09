@@ -1,4 +1,4 @@
-import { LobbyGetUsersAction, LobbyLogoutAction, LobbySetUsersAction, LobbyState, LobbyAddItemAction, LobbyRemoveItemAction, LobbyRemoveItemPayload } from "./TopTypes";
+import { LobbyGetUsersAction, LobbyLogoutAction, LobbySetUsersAction, LobbyState, LobbyAddItemAction, LobbyRemoveItemAction, LobbyRemoveItemPayload } from "./LobbyTypes";
 
 export enum ActionType {
     LOGOUT = "chatmarubatsu/Top/LOGOUT",

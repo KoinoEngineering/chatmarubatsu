@@ -6,8 +6,8 @@ import React, { useMemo } from "react";
 import { Flipped, Flipper } from "react-flip-toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
-import topActionCreators from "./TopActions";
-import { LobbyState } from "./TopTypes";
+import topActionCreators from "./LobbyActions";
+import { LobbyState } from "./LobbyTypes";
 
 function Top() {
     const dispatch = useDispatch();

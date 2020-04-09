@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { State } from "interfaces/State";
 import login from "pages/Login/LoginReducer";
-import top from "pages/Lobby/TopReducer";
+import top from "pages/Lobby/LobbyReducer";
 import { connectRouter } from "connected-react-router";
 import * as H from "history";
 

@@ -1,6 +1,6 @@
 import { firestore } from "firebase/firebase.config";
 import { MyUser } from "interfaces/firestore/users/User";
-import topActionCreators from "pages/Lobby/TopActions";
+import topActionCreators from "pages/Lobby/LobbyActions";
 import React, { useEffect, useMemo } from "react";
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from "redux";

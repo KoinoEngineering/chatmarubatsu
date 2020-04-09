@@ -1,8 +1,8 @@
 import { auth, firestore } from "firebase/firebase.config";
 import { call, takeLatest, takeLeading, put } from "redux-saga/effects";
-import topActionCreators, { ActionType } from "./TopActions";
+import topActionCreators, { ActionType } from "./LobbyActions";
 import { MyUser } from "interfaces/firestore/users/User";
-import { LobbyRemoveItemAction, LobbyRemoveItemPayload } from "./TopTypes";
+import { LobbyRemoveItemAction, LobbyRemoveItemPayload } from "./LobbyTypes";
 
 const topSaga = function* () {
     yield takeLeading(ActionType.LOGOUT, logoutSaga);

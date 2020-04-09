@@ -1,4 +1,4 @@
-import Top from "pages/Lobby/Top";
+import Top from "pages/Lobby/Lobby";
 import React from "react";
 import { renderWithProvider } from "test/tetutils";
 
