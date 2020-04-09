@@ -13,6 +13,10 @@ export interface LobbyRemoveItemPayload {
 
 
 export interface LobbyLogoutAction extends ActionObject<ActionType.LOGOUT> { }
+export interface LobbySetRoomAction extends ActionObject<ActionType.GET_USERS> { }
+
+
+
 export interface LobbyGetUsersAction extends ActionObject<ActionType.GET_USERS> { }
 export interface LobbySetUsersAction extends ActionObject<ActionType.SET_USERS, LobbySetUsersPayload> { }
 export interface LobbyAddItemAction extends ActionObject<ActionType.ADD_ITEM> { }

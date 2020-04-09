@@ -2,6 +2,7 @@ import { LobbyGetUsersAction, LobbyLogoutAction, LobbySetUsersAction, LobbyState
 
 export enum ActionType {
     LOGOUT = "chatmarubatsu/Top/LOGOUT",
+    SET_ROOM = "chatmarubatsu/Top/SET_ROOM",
     GET_USERS = "chatmarubatsu/Top/GET_USERS",
     SET_USERS = "chatmarubatsu/Top/SET_USERS",
     ADD_ITEM = "chatmarubatsu/Top/ADD_ITEM",
