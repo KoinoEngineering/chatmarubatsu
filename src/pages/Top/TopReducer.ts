@@ -1,11 +1,11 @@
 import { Reducer } from "redux";
-import { TopActions, TopState } from "./TopTypes";
+import { LobbyActions, LobbyState } from "./TopTypes";
 import { ActionType } from "./TopActions";
 
-const initialState = (): TopState => ({
+const initialState = (): LobbyState => ({
 });
 
-const top: Reducer<TopState, TopActions> = (state = initialState(), action) => {
+const top: Reducer<LobbyState, LobbyActions> = (state = initialState(), action) => {
     switch (action.type) {
         case ActionType.SET_USERS:
             return {

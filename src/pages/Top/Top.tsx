@@ -7,11 +7,11 @@ import { Flipped, Flipper } from "react-flip-toolkit";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import topActionCreators from "./TopActions";
-import { TopState } from "./TopTypes";
+import { LobbyState } from "./TopTypes";
 
 function Top() {
     const dispatch = useDispatch();
-    const { data } = useSelector<State, TopState>(state => state.top);
+    const { data } = useSelector<State, LobbyState>(state => state.lobby);
     const actions = useMemo(() => {
         return bindActionCreators(topActionCreators, dispatch);
     }, [dispatch]);

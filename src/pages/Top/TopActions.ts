@@ -1,4 +1,4 @@
-import { TopGetUsersAction, TopLogoutAction, TopSetUsersAction, TopState, TopAddItemAction, TopRemoveItemAction, TopRemoveItemPayload } from "./TopTypes";
+import { LobbyGetUsersAction, LobbyLogoutAction, LobbySetUsersAction, LobbyState, LobbyAddItemAction, LobbyRemoveItemAction, LobbyRemoveItemPayload } from "./TopTypes";
 
 export enum ActionType {
     LOGOUT = "chatmarubatsu/Top/LOGOUT",
@@ -9,11 +9,11 @@ export enum ActionType {
 }
 
 const topActionCreators = {
-    logOut: (): TopLogoutAction => ({ type: ActionType.LOGOUT }),
-    getUsers: (): TopGetUsersAction => ({ type: ActionType.GET_USERS }),
-    setUsers: (data: TopState["data"]): TopSetUsersAction => ({ type: ActionType.SET_USERS, payload: { data } }),
-    addItem: (): TopAddItemAction => ({ type: ActionType.ADD_ITEM }),
-    removeItem: (id: TopRemoveItemPayload["id"]): TopRemoveItemAction => ({ type: ActionType.REMOVE_ITEM, payload: { id } })
+    logOut: (): LobbyLogoutAction => ({ type: ActionType.LOGOUT }),
+    getUsers: (): LobbyGetUsersAction => ({ type: ActionType.GET_USERS }),
+    setUsers: (data: LobbyState["data"]): LobbySetUsersAction => ({ type: ActionType.SET_USERS, payload: { data } }),
+    addItem: (): LobbyAddItemAction => ({ type: ActionType.ADD_ITEM }),
+    removeItem: (id: LobbyRemoveItemPayload["id"]): LobbyRemoveItemAction => ({ type: ActionType.REMOVE_ITEM, payload: { id } })
 };
 
 export default topActionCreators;

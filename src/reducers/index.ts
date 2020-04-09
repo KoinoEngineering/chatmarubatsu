@@ -8,6 +8,6 @@ import * as H from "history";
 const createRootReducer = (history: H.History) => combineReducers<State>({
     router: connectRouter(history),
     login,
-    top
+    lobby: top
 });
 export default createRootReducer;

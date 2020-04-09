@@ -2,23 +2,23 @@ import { ActionObject } from "interfaces/Action";
 import { ActionType } from "./TopActions";
 import { MyUser } from "interfaces/firestore/users/User";
 
-export interface TopState {
+export interface LobbyState {
     data?: MyUser[];
 }
 
-export interface TopSetUsersPayload extends Partial<TopState> { }
-export interface TopRemoveItemPayload {
+export interface LobbySetUsersPayload extends Partial<LobbyState> { }
+export interface LobbyRemoveItemPayload {
     id: string;
 }
 
 
-export interface TopLogoutAction extends ActionObject<ActionType.LOGOUT> { }
-export interface TopGetUsersAction extends ActionObject<ActionType.GET_USERS> { }
-export interface TopSetUsersAction extends ActionObject<ActionType.SET_USERS, TopSetUsersPayload> { }
-export interface TopAddItemAction extends ActionObject<ActionType.ADD_ITEM> { }
-export interface TopRemoveItemAction extends ActionObject<ActionType.REMOVE_ITEM, TopRemoveItemPayload> { }
+export interface LobbyLogoutAction extends ActionObject<ActionType.LOGOUT> { }
+export interface LobbyGetUsersAction extends ActionObject<ActionType.GET_USERS> { }
+export interface LobbySetUsersAction extends ActionObject<ActionType.SET_USERS, LobbySetUsersPayload> { }
+export interface LobbyAddItemAction extends ActionObject<ActionType.ADD_ITEM> { }
+export interface LobbyRemoveItemAction extends ActionObject<ActionType.REMOVE_ITEM, LobbyRemoveItemPayload> { }
 
-export type TopActions =
-    TopLogoutAction |
-    TopGetUsersAction |
-    TopSetUsersAction;
+export type LobbyActions =
+    LobbyLogoutAction |
+    LobbyGetUsersAction |
+    LobbySetUsersAction;

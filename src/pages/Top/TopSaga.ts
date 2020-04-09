@@ -2,7 +2,7 @@ import { auth, firestore } from "firebase/firebase.config";
 import { call, takeLatest, takeLeading, put } from "redux-saga/effects";
 import topActionCreators, { ActionType } from "./TopActions";
 import { MyUser } from "interfaces/firestore/users/User";
-import { TopRemoveItemAction, TopRemoveItemPayload } from "./TopTypes";
+import { LobbyRemoveItemAction, LobbyRemoveItemPayload } from "./TopTypes";
 
 const topSaga = function* () {
     yield takeLeading(ActionType.LOGOUT, logoutSaga);
@@ -34,7 +34,7 @@ const addItemSaga = function* () {
     }
 };
 
-const removeItem = function* (action: TopRemoveItemAction) {
+const removeItem = function* (action: LobbyRemoveItemAction) {
     try {
         if (!action.payload?.id) {
             throw new Error(`target id is ${action.payload?.id}`);
@@ -59,7 +59,7 @@ const getUsers = async () => firestore.collection("users").get().then(usersRef =
     return ret;
 });
 
-const removeUser = async (id: TopRemoveItemPayload["id"]) =>
+const removeUser = async (id: LobbyRemoveItemPayload["id"]) =>
     firestore
         .collection("users")
         .doc(id)
