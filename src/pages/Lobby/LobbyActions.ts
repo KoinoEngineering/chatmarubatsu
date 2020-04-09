@@ -1,20 +1,13 @@
-import { LobbyGetUsersAction, LobbyLogoutAction, LobbySetUsersAction, LobbyState, LobbyAddItemAction, LobbyRemoveItemAction, LobbyRemoveItemPayload } from "./LobbyTypes";
+import { LobbyLogoutAction, LobbyRoomAddedAction, LobbyRoomAddedPayload } from "./LobbyTypes";
 
 export enum ActionType {
     LOGOUT = "chatmarubatsu/Top/LOGOUT",
-    SET_ROOM = "chatmarubatsu/Top/SET_ROOM",
-    GET_USERS = "chatmarubatsu/Top/GET_USERS",
-    SET_USERS = "chatmarubatsu/Top/SET_USERS",
-    ADD_ITEM = "chatmarubatsu/Top/ADD_ITEM",
-    REMOVE_ITEM = "chatmarubatsu/Top/REMOVE_ITEM",
+    ROOM_ADDED = "chatmarubatsu/Top/ROOM_ADDED",
 }
 
 const topActionCreators = {
     logOut: (): LobbyLogoutAction => ({ type: ActionType.LOGOUT }),
-    getUsers: (): LobbyGetUsersAction => ({ type: ActionType.GET_USERS }),
-    setUsers: (data: LobbyState["data"]): LobbySetUsersAction => ({ type: ActionType.SET_USERS, payload: { data } }),
-    addItem: (): LobbyAddItemAction => ({ type: ActionType.ADD_ITEM }),
-    removeItem: (id: LobbyRemoveItemPayload["id"]): LobbyRemoveItemAction => ({ type: ActionType.REMOVE_ITEM, payload: { id } })
+    roomAdded: (payload: LobbyRoomAddedPayload): LobbyRoomAddedAction => ({ type: ActionType.ROOM_ADDED, payload }),
 };
 
 export default topActionCreators;

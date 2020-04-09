@@ -1,28 +1,24 @@
-import { ActionObject } from "interfaces/Action";
+import { Payload } from "interfaces/Action";
+import { Room } from "interfaces/firestore/rooms/Room";
+import { Action } from "redux";
 import { ActionType } from "./LobbyActions";
-import { MyUser } from "interfaces/firestore/users/User";
 
 export interface LobbyState {
-    data?: MyUser[];
+    rooms?: Room[];
 }
 
 export interface LobbySetUsersPayload extends Partial<LobbyState> { }
 export interface LobbyRemoveItemPayload {
     id: string;
 }
+export interface LobbyRoomAddedPayload {
+    room: Room;
+}
 
 
-export interface LobbyLogoutAction extends ActionObject<ActionType.LOGOUT> { }
-export interface LobbySetRoomAction extends ActionObject<ActionType.GET_USERS> { }
-
-
-
-export interface LobbyGetUsersAction extends ActionObject<ActionType.GET_USERS> { }
-export interface LobbySetUsersAction extends ActionObject<ActionType.SET_USERS, LobbySetUsersPayload> { }
-export interface LobbyAddItemAction extends ActionObject<ActionType.ADD_ITEM> { }
-export interface LobbyRemoveItemAction extends ActionObject<ActionType.REMOVE_ITEM, LobbyRemoveItemPayload> { }
+export interface LobbyLogoutAction extends Action<ActionType.LOGOUT> { }
+export interface LobbyRoomAddedAction extends Action<ActionType.ROOM_ADDED>, Payload<LobbyRoomAddedPayload> { }
 
 export type LobbyActions =
     LobbyLogoutAction |
-    LobbyGetUsersAction |
-    LobbySetUsersAction;
+    LobbyRoomAddedAction;

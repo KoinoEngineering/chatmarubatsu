@@ -1,5 +1,5 @@
-import { firestore } from "firebase/firebase.config";
-import { MyUser } from "interfaces/firestore/users/User";
+import { firestore, StorePath } from "firebase/firebase.config";
+import { Room } from "interfaces/firestore/rooms/Room";
 import topActionCreators from "pages/Lobby/LobbyActions";
 import React, { useEffect, useMemo } from "react";
 import { useDispatch } from "react-redux";
@@ -13,25 +13,14 @@ const LobbyMonitor = () => {
 
     useEffect(() => {
         return firestore
-            .collection("users")
+            .collection(StorePath.ROOMS)
             .onSnapshot(docSnapshot => {
-                const docs: MyUser[] = [];
-                const changed: (MyUser & { type: string })[] = [];
-                docSnapshot.forEach(d => {
-                    docs.push({ id: d.id, ...d.data() });
+                docSnapshot.docChanges().forEach(doc => {
+                    switch (doc.type) {
+                        case "added":
+                            actions.roomAdded({ room: { id: doc.doc.id, ...doc.doc.data() as Omit<Room, "id"> } });
+                    }
                 });
-                docSnapshot.docChanges().forEach(({ doc, type }) => {
-                    changed.push({ type, id: doc.id, ...doc.data() });
-                });
-                if (process.env.NODE_ENV !== "production") {
-                    console.groupCollapsed("users onSnapshot");
-                    console.log("all", docs);
-                    console.log("changed only", changed);
-                    console.groupEnd();
-                }
-                actions.setUsers(docs);
-            }, err => {
-                throw err;
             });
     }, [actions]);
     return <>

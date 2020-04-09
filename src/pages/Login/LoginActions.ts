@@ -7,7 +7,7 @@ export enum ActionType {
 
 const loginActionCreators = {
     changeText: (payload: LoginChangeTextAction["payload"]): LoginChangeTextAction => ({ type: ActionType.CHANGE_TEXT, payload }),
-    logIn: (): LoginLoginAction => ({ type: ActionType.LOGIN, payload: undefined }),
+    logIn: (): LoginLoginAction => ({ type: ActionType.LOGIN }),
 };
 
 export default loginActionCreators;
