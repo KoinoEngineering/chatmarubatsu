@@ -52,6 +52,11 @@ const lobby: Reducer<LobbyState, LobbyActions> = (state = initialState(), action
                 ...state,
                 ...action.payload
             };
+        case ActionType.NEWROOM_NAME_VALIDATE:
+            return {
+                ...state,
+                ...action.payload
+            };
         default:
             return state;
     }

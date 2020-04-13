@@ -1,6 +1,8 @@
-import { Button, Card, CardContent, CardHeader, Container, Grid, IconButton, makeStyles, createStyles, Dialog, TextField } from "@material-ui/core";
+import { Button, Card, CardContent, CardHeader, Container, createStyles, Dialog, Grid, IconButton, makeStyles, Slide, TextField } from "@material-ui/core";
+import { TransitionProps } from "@material-ui/core/transitions/transition";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { GridRow } from "components/templates/GridRow/GridRow";
+import PageContainer from "components/templates/Page/PageContainer";
 import { routerActions } from "connected-react-router";
 import { State } from "interfaces/State";
 import React, { useMemo } from "react";
@@ -9,7 +11,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import topActionCreators from "./LobbyActions";
 import { LobbyState } from "./LobbyTypes";
-import PageContainer from "components/templates/Page/PageContainer";
+import CloseIcon from "@material-ui/icons/Close";
+const Transition = React.forwardRef(function Transition(
+    props: TransitionProps & { children?: React.ReactElement<any, any> },
+    ref: React.Ref<unknown>,
+) {
+    return <Slide direction="down" ref={ref} {...props} />;
+});
 
 const useCardButtonStyles = makeStyles(createStyles({
     root: {
@@ -28,7 +36,7 @@ const useCardHeaderStyles = makeStyles(createStyles({
 
 function Lobby() {
     const dispatch = useDispatch();
-    const { rooms, addRoomModal, newRoomName } = useSelector<State, LobbyState>(state => state.lobby);
+    const { rooms, addRoomModal, newRoomName, newRoomNameError: newRoomValidate } = useSelector<State, LobbyState>(state => state.lobby);
     const actions = useMemo(() => {
         return {
             ...bindActionCreators(topActionCreators, dispatch),
@@ -52,7 +60,7 @@ function Lobby() {
                                                 <CardHeader
                                                     title={d.id}
                                                     action={
-                                                        <IconButton classes={cardButtonclasses}>
+                                                        <IconButton classes={cardButtonclasses} onClick={() => actions.removeRoom({ id: d.id })}>
                                                             <DeleteIcon />
                                                         </IconButton>
                                                     }
@@ -68,7 +76,7 @@ function Lobby() {
                             )}
                         </GridRow>
                         <GridRow justify="center">
-                            <Button variant="outlined" onClick={() => actions.toggleAddRoomModal()}>ルームを追加</Button>
+                            <Button variant="outlined" onClick={() => actions.toggleAddRoomModal()}>ルームを作成</Button>
                         </GridRow>
                         <GridRow justify="center">
                             <Button variant="outlined" onClick={() => actions.logOut()}>ログアウト</Button>
@@ -78,17 +86,37 @@ function Lobby() {
             </PageContainer >
             <Dialog
                 {...addRoomModal}
+                TransitionComponent={Transition}
                 id="AddRoomModal"
                 onBackdropClick={() => actions.toggleAddRoomModal()}
             >
                 <Container>
                     <Card>
-                        <CardHeader />
+                        <CardHeader
+                            title="作成するルーム名を入力してください"
+                            action={
+                                <IconButton classes={cardButtonclasses} onClick={() => actions.toggleAddRoomModal()}>
+                                    <CloseIcon />
+                                </IconButton>
+                            }
+                            classes={cardHeaderclasses}
+                        />
                         <CardContent>
                             <Grid>
                                 <GridRow>
                                     <Grid item xs={12}>
-                                        <TextField value={newRoomName} onChange={(e) => actions.changeNewroomName({ newRoomName: e.currentTarget.value })} />
+                                        <TextField
+                                            variant="outlined"
+                                            value={newRoomName}
+                                            error={!!newRoomValidate}
+                                            onChange={(e) => actions.changeNewroomName({ newRoomName: e.currentTarget.value })}
+                                            helperText={newRoomValidate}
+                                        />
+                                    </Grid>
+                                </GridRow>
+                                <GridRow>
+                                    <Grid item xs={12}>
+                                        <Button variant="outlined" disabled={!!newRoomValidate} onClick={() => actions.addRoom()}>ルームを作成</Button>
                                     </Grid>
                                 </GridRow>
                             </Grid>
