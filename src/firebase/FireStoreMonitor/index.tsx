@@ -1,12 +1,12 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 import ROUTES from "utils/routes";
-import TopMonitor from "./TopMonitor";
+import LobbyMonitor from "./LobbyMonitor";
 
 const FireStoreMonitor = () => {
     return <Switch>
-        <Route path={ROUTES.TOP}>
-            <TopMonitor />
+        <Route path={ROUTES.LOBBY}>
+            <LobbyMonitor />
         </Route>
     </Switch >;
 };

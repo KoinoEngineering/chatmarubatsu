@@ -6,9 +6,15 @@ const useStyes = makeStyles(createStyles({
     root: {
         height: "100%"
     }
-}));
+}), {
+    classNamePrefix: "PageContainer"
+});
 
-const PageContainer: React.FC<Propsof<typeof Container>> = (props) => {
+interface PageContainerProps extends Propsof<typeof Container> {
+    id: Propsof<typeof Container>["id"]
+}
+
+const PageContainer: React.FC<PageContainerProps> = (props) => {
     const classes = useStyes();
     return <Container {...props} classes={classes} />;
 };

@@ -5,7 +5,7 @@ import React from "react";
 
 export const renderWithProvider = (Target: React.ReactNode) => render(
     <React.StrictMode>
-        <Provider store={configureStore}>
+        <Provider store={configureStore.store}>
             {Target}
         </Provider>
     </React.StrictMode>,

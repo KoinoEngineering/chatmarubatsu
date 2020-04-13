@@ -23,7 +23,9 @@ const useStyles = makeStyles(createStyles({
         paddingLeft: (props?: Partial<GridClassProps>) => props?.paddingLeft,
         paddingBottom: (props?: Partial<GridClassProps>) => props?.paddingBottom,
     }
-}));
+}), {
+    classNamePrefix: "GridRow"
+});
 
 export const GridRow: React.FC<GridRowProps> = ({ padding, ...gridProps }) => {
     const classes = useStyles(padding);

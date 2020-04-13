@@ -1,8 +1,9 @@
-import { takeLeading, call, put } from "redux-saga/effects";
-import { ActionType } from "./LoginActions";
-import { auth } from "firebase/firebase.config";
 import { push } from "connected-react-router";
+import * as firebase from "firebase/app";
+import { auth } from "firebase/firebase.config";
+import { call, put, takeLeading } from "redux-saga/effects";
 import ROUTES from "utils/routes";
+import { ActionType } from "./LoginActions";
 
 const loginSaga = function* () {
     yield takeLeading(ActionType.LOGIN, clickLoginSaga);
@@ -12,7 +13,7 @@ const clickLoginSaga = function* () {
 
     try {
         yield call(callLogin);
-        yield put(push(ROUTES.TOP));
+        yield put(push(ROUTES.LOBBY));
     } catch (error) {
         console.log(error);
     }
@@ -20,6 +21,8 @@ const clickLoginSaga = function* () {
 
 export default loginSaga;
 
-const callLogin = async () => auth.signInAnonymously().catch(err => {
-    console.log(err);
-});
+const callLogin = async () =>
+    auth
+        .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+        .then(() => auth.signInAnonymously())
+    ;
