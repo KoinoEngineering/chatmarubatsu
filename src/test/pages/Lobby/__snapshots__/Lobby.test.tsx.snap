@@ -6,17 +6,18 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="Top"
+        class="MuiContainer-root PageContainer-root-3 MuiContainer-maxWidthLg"
+        id="Lobby"
       >
         <div>
           <div
             class="MuiGrid-root"
           >
             <div
-              class="MuiGrid-root MuiGrid-container makeStyles-container-104 makeStyles-container-106"
+              class="MuiGrid-root MuiGrid-container GridRow-container-115 GridRow-container-117"
             />
             <div
-              class="MuiGrid-root MuiGrid-container makeStyles-container-104 makeStyles-container-108 MuiGrid-justify-xs-center"
+              class="MuiGrid-root MuiGrid-container GridRow-container-115 GridRow-container-119 MuiGrid-justify-xs-center"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
@@ -26,7 +27,7 @@ Object {
                 <span
                   class="MuiButton-label"
                 >
-                  追加
+                  ルームを作成
                 </span>
                 <span
                   class="MuiTouchRipple-root"
@@ -34,7 +35,7 @@ Object {
               </button>
             </div>
             <div
-              class="MuiGrid-root MuiGrid-container makeStyles-container-104 makeStyles-container-142 MuiGrid-justify-xs-center"
+              class="MuiGrid-root MuiGrid-container GridRow-container-115 GridRow-container-153 MuiGrid-justify-xs-center"
             >
               <button
                 class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
@@ -58,17 +59,18 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="Top"
+      class="MuiContainer-root PageContainer-root-3 MuiContainer-maxWidthLg"
+      id="Lobby"
     >
       <div>
         <div
           class="MuiGrid-root"
         >
           <div
-            class="MuiGrid-root MuiGrid-container makeStyles-container-104 makeStyles-container-106"
+            class="MuiGrid-root MuiGrid-container GridRow-container-115 GridRow-container-117"
           />
           <div
-            class="MuiGrid-root MuiGrid-container makeStyles-container-104 makeStyles-container-108 MuiGrid-justify-xs-center"
+            class="MuiGrid-root MuiGrid-container GridRow-container-115 GridRow-container-119 MuiGrid-justify-xs-center"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
@@ -78,7 +80,7 @@ Object {
               <span
                 class="MuiButton-label"
               >
-                追加
+                ルームを作成
               </span>
               <span
                 class="MuiTouchRipple-root"
@@ -86,7 +88,7 @@ Object {
             </button>
           </div>
           <div
-            class="MuiGrid-root MuiGrid-container makeStyles-container-104 makeStyles-container-142 MuiGrid-justify-xs-center"
+            class="MuiGrid-root MuiGrid-container GridRow-container-115 GridRow-container-153 MuiGrid-justify-xs-center"
           >
             <button
               class="MuiButtonBase-root MuiButton-root MuiButton-outlined"
